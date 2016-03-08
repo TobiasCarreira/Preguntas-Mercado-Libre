@@ -47,7 +47,6 @@ class AppController {
             redirect(controller: 'login', action: 'index' )
         }
     }
-    //TODO: cambiar el maxlenght del textearea!!
     def pregunta(PreguntaCommand cmd) {
         if(session['token'] != null){
             if(!cmd.hasErrors()){
