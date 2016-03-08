@@ -10,7 +10,6 @@ buildscript {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
         classpath "com.bertramlabs.plugins:asset-pipeline-gradle:2.5.0"
         classpath "org.grails.plugins:hibernate4:5.0.2"
-        provided "org.springframework.boot:spring-boot-starter-tomcat"
     }
 }
 
@@ -55,6 +54,7 @@ dependencies {
     compile "org.hibernate:hibernate-ehcache"
     console "org.grails:grails-console"
     profile "org.grails.profiles:web:3.1.2"
+    provided "org.springframework.boot:spring-boot-starter-tomcat"
     runtime "org.grails.plugins:asset-pipeline"
     runtime "com.h2database:h2"
     testCompile "org.grails:grails-plugin-testing"
