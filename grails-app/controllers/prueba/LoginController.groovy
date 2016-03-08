@@ -20,7 +20,7 @@ class LoginController {
     }
 
     def meliRedirect() {
-        String redirectUrl = m.getAuthUrl('http://https://serene-island-81816.herokuapp.com/code')
+        String redirectUrl = m.getAuthUrl('http://serene-island-81816.herokuapp.com/code')
         redirect(url: redirectUrl)
     }
 
