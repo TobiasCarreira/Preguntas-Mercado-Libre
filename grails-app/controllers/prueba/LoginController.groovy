@@ -20,13 +20,13 @@ class LoginController {
     }
 
     def meliRedirect() {
-        String redirectUrl = m.getAuthUrl('http://serene-island-81816.herokuapp.com/code')
+        String redirectUrl = m.getAuthUrl('https://serene-island-81816.herokuapp.com/code')
         redirect(url: redirectUrl)
     }
 
     def gotCode(CodeCommand cmd) {
         if(!cmd.hasErrors()){
-            m.authorize(params.code, 'http://serene-island-81816.herokuapp.com/code')
+            m.authorize(params.code, 'https://serene-island-81816.herokuapp.com/code')
             session['token'] = m.getAccessToken()
             redirect(controller: 'app', action: 'index' )
         } else{
