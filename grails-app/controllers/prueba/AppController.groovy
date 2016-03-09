@@ -33,11 +33,7 @@ class AppController {
                     JsonParser parser = new JsonParser()
                     JsonObject obj = parser.parse(responseBody).getAsJsonObject()
                     JsonArray questions = obj.getAsJsonArray('questions')
-                    def q = questions.grep{
-                        def status = it.get('status').getAsString()
-                        status.equalsIgnoreCase('UNANSWERED') || status.equalsIgnoreCase('UNDER_REVIEW')
-                    }
-                    q.each{
+                    questions.each{
                     	Response responseItem = m.get("/items/"+it.get('item_id').getAsString(), params)
             			String responseBodyItem = responseItem.getResponseBody()
             			def item = parser.parse(responseBodyItem).getAsJsonObject()
@@ -45,8 +41,7 @@ class AppController {
             			it.addProperty('item_title',item.get('title').getAsString())
             			it.addProperty('item_url',item.get('permalink').getAsString())
                     }
-                    [response: responseBody,
-                    questions: q,
+                    [questions: questions,
                     total: q.size(),
                     offset: offset]
                 } catch(JsonSyntaxException e){
