@@ -69,7 +69,6 @@ class AppController {
                         JsonParser parser = new JsonParser()
                         JsonObject question = parser.parse(responseBody).getAsJsonObject()
                         if(question.get('status').getAsString() == 'UNANSWERED'){
-                            response.setHeader('Expires', '-1')
                             [question: question]
                         } else{
                             redirect(action: 'error', params: [error: 'La pregunta ya ha sido contestada'])
