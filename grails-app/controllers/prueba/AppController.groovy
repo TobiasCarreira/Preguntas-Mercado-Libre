@@ -34,7 +34,7 @@ class AppController {
                     JsonArray questions = obj.getAsJsonArray('questions')
                     def q = questions.grep{
                         def status = it.get('status').getAsString()
-                        status=='UNANSWERED' || status=='UNDER_REVIEW'
+                        status.equalsIgnoreCase('UNANSWERED') || status.equalsIgnoreCase('UNDER_REVIEW')
                     }
                     q.each{
                     	Response responseItem = m.get("/items/"+it.get('item_id').getAsString(), params)
