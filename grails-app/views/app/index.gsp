@@ -16,6 +16,7 @@
     </head>
     <body>
         <h1>Preguntas sin responder</h1>
+        ${resonse}
         <g:if test="${total>0}">
             <table>
                 <thead>

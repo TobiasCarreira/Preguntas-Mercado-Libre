@@ -44,7 +44,8 @@ class AppController {
             			it.addProperty('item_title',item.get('title').getAsString())
             			it.addProperty('item_url',item.get('permalink').getAsString())
                     }
-                    [questions: q,
+                    [response: responseBody,
+                    questions: q,
                     total: q.size(),
                     offset: offset]
                 } catch(JsonSyntaxException e){
