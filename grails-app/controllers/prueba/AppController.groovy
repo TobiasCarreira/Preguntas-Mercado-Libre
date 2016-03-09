@@ -32,6 +32,7 @@ class AppController {
                 try{
                     JsonParser parser = new JsonParser()
                     JsonObject obj = parser.parse(responseBody).getAsJsonObject()
+                    int total = obj.get('total').getAsInt()
                     JsonArray questions = obj.getAsJsonArray('questions')
                     questions.each{
                     	Response responseItem = m.get("/items/"+it.get('item_id').getAsString(), params)
@@ -42,7 +43,7 @@ class AppController {
             			it.addProperty('item_url',item.get('permalink').getAsString())
                     }
                     [questions: questions,
-                    total: q.size(),
+                    total: total,
                     offset: offset]
                 } catch(JsonSyntaxException e){
                     redirect(action: 'error', params: [error: 'Error, vuelva a intentar [json]'])

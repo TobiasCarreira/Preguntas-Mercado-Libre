@@ -44,7 +44,7 @@
                 <tbody>
             </table>
             <g:if test="${offset != 0}">
-                <g:link action='index' params="${['offset': offset>0?offset-50:0]}"><button>Anterior pagina</button></g:link>
+                <g:link action='index' params="${['offset': offset>50?offset-50:0]}"><button>Anterior pagina</button></g:link>
             </g:if>
             <g:if test="${total > offset + 50}">
                 <g:link  action='index' params="${['offset': offset+50]}"><button>Proxima pagina</button></g:link>
