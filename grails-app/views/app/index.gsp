@@ -37,9 +37,9 @@
                                 ${it.get('text').getAsString()}
                             </g:link></td>
                             
-                            <td>
+                            <td><a href="${it.get('item_url').getAsString()}">
                                 ${it.get('item_title').getAsString()}
-                            </td>
+                            </a></td>
                         </tr>
                     </g:each>
                 <tbody>
