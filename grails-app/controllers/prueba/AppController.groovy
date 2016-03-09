@@ -24,7 +24,7 @@ class AppController {
                 offset = Integer.parseInt(this.params.offset)
                 params.add("offset", "" + offset)
             }
-            //params.add("status", "" + 'UNANSWERED')
+            params.add("status", "" + 'UNANSWERED')
             Response response = m.get("/my/received_questions/search", params)
             String responseBody = response.getResponseBody()
 
