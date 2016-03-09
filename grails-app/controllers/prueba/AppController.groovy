@@ -33,6 +33,13 @@ class AppController {
                     JsonObject obj = parser.parse(responseBody).getAsJsonObject()
                     JsonArray questions = obj.getAsJsonArray('questions')
                     def q = questions.grep{it.get('status').getAsString()=='UNANSWERED'}
+                    q.each{
+                    	Response responseItem = m.get("/items/"+it.get('item_id').getAsString(), params)
+            			String responseBodyItem = response.getResponseBody()
+            			def item = parser.parse(responseBodyItem).getAsJsonObject()
+            			it.addProperty('item_title',item.get('title').getAsString())
+            			it.addProperty('item_url',item.get('permalink').getAsString())
+                    }
                     [questions: q,
                     total: q.size(),
                     offset: offset]
