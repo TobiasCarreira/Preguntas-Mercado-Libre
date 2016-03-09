@@ -9,7 +9,6 @@
                 width: 100%;
             }
             thead{
-                border: 0px;
                 background-color: gray;
                 color: white;
             }
