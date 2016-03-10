@@ -38,7 +38,6 @@ class AppController {
                     	Response responseItem = m.get("/items/"+it.get('item_id').getAsString(), params)
             			String responseBodyItem = responseItem.getResponseBody()
             			def item = parser.parse(responseBodyItem).getAsJsonObject()
-            			it.addProperty('item_title', responseBodyItem)
             			it.addProperty('item_title',item.get('title').getAsString())
             			it.addProperty('item_url',item.get('permalink').getAsString())
                     }
